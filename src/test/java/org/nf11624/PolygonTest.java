@@ -80,12 +80,13 @@ public class PolygonTest {
 		PolyPoint v2 = new PolyPoint(BigDecimal.ONE, BigDecimal.ZERO);
 		PolyPoint v3 = new PolyPoint(new BigDecimal(-1), BigDecimal.ZERO);
 		
-		PolyPoint p1 = new PolyPoint(half, half);
+		PolyPoint p1 = new PolyPoint(BigDecimal.ZERO, half);
 		
 		List<PolyPoint> vertices = new ArrayList<PolyPoint>(4);
 		vertices.add(v1);
 		vertices.add(v2);
 		vertices.add(v3);
+		vertices.add(v1);
 		
 		Polygon p = new Polygon();
 		p.setPoints(vertices);
@@ -113,11 +114,12 @@ public class PolygonTest {
 		vertices.add(v2);
 		vertices.add(v3);
 		vertices.add(v4);
+		vertices.add(v1);
 		
 		Polygon p = new Polygon();
 		p.setPoints(vertices);
 		
-		assertTrue(p.isPointContained(p1));
+ 		assertTrue(p.isPointContained(p1));
 		assertFalse(p.isPointContained(p4));
 		
 	}
